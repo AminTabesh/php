@@ -79,26 +79,26 @@
 
             <div class="field-wrapper">
                 <label for="name">Name: </label>
-                <input type="text" name="name" class="text-input" >
+                <input type="text" name="name" class="text-input" value=<?= $name ?? ""; ?> >
             </div>
             <div class="field-wrapper">
                 <label for="email">E-mail: </label>
-                <input type="email" name="email" class="text-input" >
+                <input type="email" name="email" class="text-input" value=<?= $email ?? ""; ?> >
             </div>
             <div class="field-wrapper">
                 <label for="website">Website: </label>
-                <input type="text" name="website" class="text-input" >
+                <input type="text" name="website" class="text-input" value=<?= $website ?? ""; ?> >
             </div>
             <div class="field-wrapper">
                 <label for="comment">Comment: </label>
-                <textarea name="comment" class="text-input" cols="10" ></textarea>
+                <textarea name="comment" class="text-input" cols="10" ><?= $comment ?? ""; ?></textarea>
             </div>
             <div class="field-wrapper">
                 <label for="status">Status: </label>
                 <select name="status">
-                    <option value="Not Important">Not Important</option>
-                    <option value="Madium">Medium</option>
-                    <option value="Important">Important</option>
+                    <option value="Not Important" <?php if(isset($status) && $status === 'Not Important') {echo "selected";} ?> >Not Important</option>
+                    <option value="Medium" <?php if(isset($status) && $status === 'Medium') {echo "selected";} ?>>Medium</option>
+                    <option value="Important" <?php if(isset($status) && $status === 'Important') {echo "selected";} ?>>Important</option>
                 </select>
             </div>
             <div class="radio-wrapper">
@@ -106,16 +106,16 @@
                 <div class="options-wrapper">
                     <div>
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" value="male" id="male" >
+                        <input type="radio" name="gender" value="male" id="male" <?php if(isset($gender) && $gender === "male") {echo 'checked';} ?> >
                     </div>
                     <div>
                         <label for="female">Female</label>
-                        <input type="radio" name="gender" value="female" id="female" >
+                        <input type="radio" name="gender" value="female" id="female" <?php if(isset($gender) && $gender === "female") {echo 'checked';} ?>>
                     </div>
                 </div>
             </div>
             <div class="checkbox-wrapper">
-                <input type="checkbox" value="accepted" name="terms" id="terms" >
+                <input type="checkbox" value="accepted" name="terms" id="terms" <?php if(isset($terms) && $terms === true) {echo "checked";} ?> >
                 <label for="terms">I accept the terms.</label>
             </div>
 
